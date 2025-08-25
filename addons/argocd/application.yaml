@@ -12,6 +12,7 @@ spec:
     chart: argo-cd
     targetRevision: 7.4.0
     helm:
+      releaseName: argocd
       parameters:
         - name: server.service.type
           value: LoadBalancer
