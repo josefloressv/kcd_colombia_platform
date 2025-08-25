@@ -15,12 +15,16 @@ spec:
       parameters:
         - name: clusterName
           value: kcdcolombia-eks-prod
+        - name: vpcId
+          value: vpc-0dc3f89fefb672cfb
         - name: serviceAccount.create
           value: "false"
         - name: serviceAccount.name
           value: aws-load-balancer-controller
         - name: region
           value: us-east-1
+        - name: replicaCount
+          value: "1"
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
