@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: external-dns
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "20"
+spec:
+  project: platform
+  source:
+    repoURL: https://kubernetes-sigs.github.io/external-dns/
+    chart: external-dns
+    targetRevision: 1.15.0
+    helm:
+      parameters:
+        - name: provider
+          value: aws
+        - name: policy
+          value: upsert-only
+        - name: registry
+          value: txt
+        - name: txtOwnerId
+          value: kcdcolombia
+        - name: domainFilters[0]
+          value: eks.gitops.club
+        - name: serviceAccount.create
+          value: "false"
+        - name: serviceAccount.name
+          value: external-dns
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
