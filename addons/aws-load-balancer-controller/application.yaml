@@ -15,6 +15,8 @@ spec:
       parameters:
         - name: clusterName
           value: kcdcolombia-prod
+        - name: vpcId
+          value: vpc-069864382f43814a8
         - name: serviceAccount.create
           value: "false"
         - name: serviceAccount.name
