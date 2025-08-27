@@ -14,9 +14,7 @@ spec:
     helm:
       parameters:
         - name: clusterName
-          value: kcdcolombia-eks-prod
-        - name: vpcId
-          value: vpc-0dc3f89fefb672cfb
+          value: kcdcolombia-prod
         - name: serviceAccount.create
           value: "false"
         - name: serviceAccount.name
