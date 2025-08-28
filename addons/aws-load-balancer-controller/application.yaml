@@ -16,7 +16,7 @@ spec:
         - name: clusterName
           value: kcdcolombia-prod
         - name: vpcId
-          value: vpc-069864382f43814a8
+          value: vpc-0ba38fc22f19e1e9f
         - name: serviceAccount.create
           value: "false"
         - name: serviceAccount.name
